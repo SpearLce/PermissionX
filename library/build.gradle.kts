@@ -2,11 +2,27 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     //id("maven-publish") // 添加插件
-    //`maven-publish`
+    `maven-publish`
     
 }
 
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.illidancstormrage" //是层次化的，一般格式是com.company.department.project。
+            artifactId = "library" //表示项目具体的构件ID，即产品或模块的名字。
+            version = "1.0" //义化版本控制规范，如major.minor.patch（主版本.次版本.修订版本）
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
 android {
+
     namespace = "com.permissionx.illidancstormrage"
     compileSdk = 33
 
