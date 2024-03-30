@@ -1,2 +1,2 @@
 jdk:
-  - openjdk11 # Gradle7以上，仅支持jdk11来工作
+  - openjdk17 # Gradle7以上，仅支持jdk11以上来工作
